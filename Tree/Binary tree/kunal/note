@@ -1,0 +1,21 @@
+when to use BFS
+
+when you think the answer is near root use BFS. 
+when you ar asked to search by level
+
+
+
+when to use DFS
+
+when you need to do something at that level and then go down use pre order
+when you need the leftmost value use inorder
+if you want to perform some functions at the last use post order
+
+ Preorder (Node → Left → Right)
+ → If the work is done before recursive calls, it’s preorder.
+
+ Inorder (Left → Node → Right)
+ → If the work is done between left and right recursive calls, it’s inorder.
+
+ Postorder (Left → Right → Node)
+ → If the work is done after both recursive calls, it’s postorder.
