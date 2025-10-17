@@ -112,33 +112,32 @@ class BinaryTree {
   }
 
   // Helper: delete deepest node
-deleteDeepestNode(deepestNode) {
-  if (!this.root) return;
+  deleteDeepestNode(deepestNode) {
+    if (!this.root) return;
 
-  const queue = [this.root];
-  while (queue.length > 0) {
-    const current = queue.shift();
+    const queue = [this.root];
+    while (queue.length > 0) {
+      const current = queue.shift();
 
-    if (current.left) {
-      if (current.left === deepestNode) {
-        current.left = null;  // unlink left child
-        return;
-      } else {
-        queue.push(current.left);
+      if (current.left) {
+        if (current.left === deepestNode) {
+          current.left = null; // unlink left child
+          return;
+        } else {
+          queue.push(current.left);
+        }
       }
-    }
 
-    if (current.right) {
-      if (current.right === deepestNode) {
-        current.right = null;  // unlink right child
-        return;
-      } else {
-        queue.push(current.right);
+      if (current.right) {
+        if (current.right === deepestNode) {
+          current.right = null; // unlink right child
+          return;
+        } else {
+          queue.push(current.right);
+        }
       }
     }
   }
-}
-
 
   // Delete a node by replacing with deepest node
   delete(data) {
@@ -186,10 +185,10 @@ tree.insert(6);
 tree.insert(7);
 
 console.log("In-order traversal:");
-tree.inorder();   // 4 2 5 1 6 3 7
+tree.inorder(); // 4 2 5 1 6 3 7
 
 console.log("Pre-order traversal:");
-tree.preorder();  // 1 2 4 5 3 6 7
+tree.preorder(); // 1 2 4 5 3 6 7
 
 console.log("Post-order traversal:");
 tree.postorder(); // 4 5 2 6 7 3 1
@@ -203,3 +202,62 @@ console.log("Search for 10:", tree.search(10)?.data ?? "Not found"); // Not foun
 tree.delete(3);
 console.log("Level-order after deleting 3:");
 tree.levelOrder(); // 1 2 7 4 5 6
+
+var preorderTraversal = function (root) {
+  if (!root) return [];
+  const ans = [];
+  const stack = [root];
+
+  while (stack.length) {
+    let curr = stack.pop();
+    ans.push(curr.val);
+
+    //  root left right we need to save right because if we go left we cant go back to right
+    curr.right && stack.push(curr.right);
+    curr.left && stack.push(curr.left);
+  }
+
+  return ans;
+};
+
+var inorderTraversal = function (root) {
+  if (!root) return [];
+
+  const ans = [];
+  const stack = [];
+  let curr = root;
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+    curr = stack.pop();
+    ans.push(curr.val);
+    curr = curr.right;
+  }
+
+  return ans;
+};
+
+var postOrderTraversal = function (root) {
+  if (!root) return [];
+
+  let s1 = [root];
+  let s2 = [];
+
+  while (s1.length) {
+    let curr = s1.pop();
+    s2.push(curr);
+
+    curr.left && s1.push(curr.left);
+    curr.right && s1.push(curr.right);
+  }
+
+  let ans = [];
+
+  while (s2.length) {
+    ans.push(s2.pop().val);
+  }
+
+  return ans;
+};
