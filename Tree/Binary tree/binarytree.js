@@ -261,3 +261,55 @@ var postOrderTraversal = function (root) {
 
   return ans;
 };
+
+
+
+//  level order recursive
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function levelOrderRecursive(root) {
+  const result = [];
+  const height = getHeight(root);
+
+  for (let i = 1; i <= height; i++) {
+    const levelNodes = [];
+    collectLevel(root, i, levelNodes);
+    result.push(levelNodes);
+  }
+
+  return result;
+}
+
+function getHeight(node) {
+  if (!node) return 0;
+  return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+}
+
+function collectLevel(node, level, arr) {
+  if (!node) return;
+  if (level === 1) {
+    arr.push(node.val);
+  } else {
+    collectLevel(node.left, level - 1, arr);
+    collectLevel(node.right, level - 1, arr);
+  }
+}
+
+// Example:
+const root = new Node(1);
+root.left = new Node(2);
+root.right = new Node(3);
+root.left.left = new Node(4);
+root.left.right = new Node(5);
+root.right.left = new Node(6);
+root.right.right = new Node(7);
+
+console.log(levelOrderRecursive(root));
+// Output: [[1], [2, 3], [4, 5, 6, 7]]
