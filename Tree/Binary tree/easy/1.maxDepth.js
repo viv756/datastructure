@@ -31,24 +31,37 @@ var maxDepth = function (root) {
   return depth;
 };
 
-
 // DFS
 
 var maxDepth = function (root) {
-    if (!root) return 0;
+  if (!root) return 0;
 
-    const stack = [[root, 1]]; // [node, depth]
-    let maxDepth = 0;
+  const stack = [[root, 1]]; // [node, depth]
+  let maxDepth = 0;
 
-    while (stack.length > 0) {
-        const [node, depth] = stack.pop();
-        console.log("Visiting:", node.val, "Depth:", depth);
+  while (stack.length > 0) {
+    const [node, depth] = stack.pop();
+    console.log("Visiting:", node.val, "Depth:", depth);
 
-        maxDepth = Math.max(maxDepth, depth);
+    maxDepth = Math.max(maxDepth, depth);
 
-        if (node.left) stack.push([node.left, depth + 1]);
-        if (node.right) stack.push([node.right, depth + 1]);
-    }
+    if (node.left) stack.push([node.left, depth + 1]);
+    if (node.right) stack.push([node.right, depth + 1]);
+  }
 
-    return maxDepth;
+  return maxDepth;
+};
+
+var maxDepth = function (root) {
+  if (!root) return 0;
+  let maxDepth = 0;
+
+  function tranversal(node, depth) {
+    maxDepth = Math.floor(maxDepth, depth);
+    node.left && tranversal(node.left, depth + 1);
+    node.right && tranversal(node.right, depth + 1);
+  }
+
+  tranversal(root, 1);
+  return maxDepth;
 };
