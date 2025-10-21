@@ -2,6 +2,8 @@
  * @param {string} s
  * @return {boolean}
  */
+
+
 var isValid = function(s) {
     let stack = []
     let mapping = {
@@ -10,6 +12,7 @@ var isValid = function(s) {
         ']' : '['
     }
 
+    
     for(const c of s){
         if(Object.values(mapping).includes(c)){
             stack.push(c)
@@ -22,7 +25,6 @@ var isValid = function(s) {
 
     return stack.length===0
 };
-
 
 
 

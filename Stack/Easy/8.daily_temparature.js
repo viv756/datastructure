@@ -1,3 +1,5 @@
+
+// time
 var dailyTemperatures = function (temperatures) {
   const result = new Array(temperatures.length).fill(0);
 
@@ -17,6 +19,7 @@ var dailyTemperatures = function (temperatures) {
 };
 
 console.log(dailyTemperatures([89,62,70,58,47,47,46,76,100,70]));
+
 
 var dailyTemperatures = function (temperatures) {
   const stack = [];

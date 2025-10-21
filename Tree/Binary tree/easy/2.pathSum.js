@@ -26,20 +26,39 @@ var hasPathSum = function (root, targetSum) {
   return false;
 };
 
-
 // DFS
-var hasPathSum = function(root, targetSum) {
-    if (!root) return false;
+// bottom up
+var hasPathSum = function (root, targetSum) {
+  if (!root) return false;
 
-    if (!root.left && !root.right) {
-        return targetSum - root.val === 0;
-    }
+  if (!root.left && !root.right) {
+    return targetSum - root.val === 0;
+  }
 
-    targetSum -= root.val;
+  targetSum -= root.val;
 
-    return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);    
+  return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
 };
 
+// top down
+var hasPathSum = function (root, targetSum) {
+  if (!root) return false;
+
+  var traverse = function (curr, currSum) {
+    let newSum = currSum + curr.val;
+    if (!curr.left && !curr.right) {
+      if (newSum === targetSum) {
+        ans = ans || true;
+      }
+    }
+    
+    curr.left && traverse(curr.left, newSum);
+    curr.right && traverse(curr.right, newSum);
+  };
+
+  traverse(root, 0);
+  return ans;
+};
 
 var hasPathSum = function (root, targetSum) {
   if (!root) return false;

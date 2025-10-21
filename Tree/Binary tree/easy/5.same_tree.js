@@ -1,5 +1,5 @@
 var isSameTree = function(p, q) {
-    const queue = [[p,q]]
+    const queue = [[p, q]]
 
     while(queue.length > 0){
         const [p,q] = queue.shift()

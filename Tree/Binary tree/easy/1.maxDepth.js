@@ -52,6 +52,8 @@ var maxDepth = function (root) {
   return maxDepth;
 };
 
+// top down
+// traverse left and right subtree. increase depth while recursing
 var maxDepth = function (root) {
   if (!root) return 0;
   let maxDepth = 0;
@@ -64,4 +66,13 @@ var maxDepth = function (root) {
 
   tranversal(root, 1);
   return maxDepth;
+};
+
+// bottom up 
+var maxDepth = function (root) {
+  if (!root) return 0;
+ let leftMax = maxDepth(root.left)
+ let rightMax = maxDepth(root.right)
+ 
+  return 1 + Math.max(leftMax,rightMax)
 };
