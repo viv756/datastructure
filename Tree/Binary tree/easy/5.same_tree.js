@@ -27,3 +27,28 @@ var isSameTree = function(p, q) {
     
     return false;    
 };
+
+
+
+// bruteforce
+
+var isSubtree = function (root, subRoot) {
+  if (!subRoot) return true; // empty tree is always a subtree
+  if (!root) return false;   // main tree empty but subRoot not → false
+
+  // if current trees match OR if left/right subtree contains it
+  if (checkSameTree(root, subRoot)) return true;
+
+  return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+};
+
+function checkSameTree(p, q) {
+  if (!p && !q) return true;
+  if (!p || !q) return false;
+
+  return (
+    p.val === q.val &&
+    checkSameTree(p.left, q.left) &&
+    checkSameTree(p.right, q.right)
+  );
+}
