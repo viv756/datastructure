@@ -21,6 +21,7 @@ var lowestCommonAncestor = function (root, p, q) {
 
   if (left && right) return root;
 
+  // if we find one of the target node return it. because it will be the lca
   return left || right;
 };
 
