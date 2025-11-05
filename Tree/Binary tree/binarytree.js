@@ -1,3 +1,12 @@
+// Preorder (Node → Left → Right)
+// → If the work is done before recursive calls, it’s preorder.
+
+// Inorder (Left → Node → Right)
+// → If the work is done between left and right recursive calls, it’s inorder.
+
+// Postorder (Left → Right → Node)
+// → If the work is done after both recursive calls, it’s postorder.
+
 class Node {
   constructor(data) {
     this.data = data;
@@ -261,8 +270,6 @@ var postOrderTraversal = function (root) {
 
   return ans;
 };
-
-
 
 //  level order recursive
 
