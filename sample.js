@@ -1,86 +1,38 @@
-class MaxHeap{
-  constructor() {
-    this.heap = []
-  }
+function heaSort(arr) {
   
- getParentIndex(index) {
-    return Math.floor((index - 1) / 2);
+  buildMaxHeap(arr)
+
+  for (let i = arr.length - 1; i >= 0; i--){
+    swap(arr,0,i)
   }
 
-  // Get the left child index of a node
-  getLeftChildIndex(index) {
-    return 2 * index + 1;
+}
+
+
+function buildHeap(arr) {
+  let n = arr.length 
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--){
+    heapifyDown(arr,i,n)
   }
+}
 
-  // Get the right child index of a node
-  getRightChildIndex(index) {
-    return 2 * index + 2;
+
+function heapifyDown(arr, i, size) {
+  let largest = i 
+  let left = i * 2 + 1
+  let right = i * 2 + 2 
+  
+
+  if (left < size && arr[left] > arr[largest]) largest = left
+  if (right < size && arr[right] > arr[largest]) largest = right 
+  
+  if (largest !== i) {
+    swap(arr, i, j)
+    heapify(arr,largest,size)
   }
-
-  swap(index1, index2) {
-    let temp = this.heap[index1]
-    this.heap[index1] = this.heap[index2]
-    this.heap[index2] = temp 
-  }
-
-  insert(data) {
-    this.heap.push(data)
-    this.heapify()
-  }
-
-  heapify() {
-    let index = this.heap.length - 1
-    
-    while (index > 0) {
-      let parentIndex = this.getParentIndex(index)
-
-      if (this.heap[parentIndex] < this.heap[index]) {
-        this.swap(parentIndex, index)
-        index = parentIndex
-      } else {
-        break
-      }
-    }
-  }
+}
 
 
-  removeMax() {
-    if (this.heap.length === 0) {
-      return null
-    }
-
-    if (this.heap.length === 1) {
-     return this.heap.pop()
-    }
-
-    const max = this.heap[0]
-    this.heap[0] = this.heap.pop()
-    this.heapifyDown()
-    return max
-  }
-
-  heapifyDown() {
-    let index = 0
-
-    while (this.getLeftChildIndex(index) < this.heap.length) {
-      let leftIndex = this.getLeftChildIndex(index)
-      let rightChildIndex = this.getRightChildIndex(index)
-
-      let largestIndex = leftIndex
-
-      if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] > this.heap[leftIndex]) {
-        largestIndex = rightChildIndex
-      }
-
-      if (this.heap[index] < this.heap[largestIndex]) {
-        this.swap(index, largestIndex)
-        index = largestIndex
-      } else {
-        break
-      }
-
-    }
-    
-  }
-
+function swap(arr, i, j) {
+  [arr[i],arr[j]] = [arr[j],arr[i]]
 }

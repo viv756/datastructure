@@ -105,11 +105,11 @@ class MaxHeap {
 // Example usage:
 const maxHeap = new MaxHeap();
 
-maxHeap.insert(10);
+maxHeap.insert(7);
 maxHeap.insert(5);
 maxHeap.insert(3);
 maxHeap.insert(2);
-maxHeap.insert(7);
+maxHeap.insert(10);
 
 console.log("Heap elements after insertion:");
 maxHeap.print(); // Output: [10, 7, 3, 2, 5]
