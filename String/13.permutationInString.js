@@ -16,7 +16,6 @@ var checkInclusion = function (s1, s2) {
     s2Count[s2[i]] = (s2Count[s2[i]] || 0) + 1;
   }
 
-
   if (isEqual(s1Count, s2Count)) {
     return true;
   }
