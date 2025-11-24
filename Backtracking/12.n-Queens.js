@@ -12,6 +12,7 @@ var solveNQueens = function (n) {
       res.push(transform(board));
     }
 
+    // In the N-Queens problem, we always place the first queen in every possible column of the first row, one by one — and then we backtrack for the rest of the rows.
     for (let col = 0; col < n; col++) {
       if (colSet.has(col) || digSet.has(row - col) || antiDigSet.has(row + col)) continue;
 
