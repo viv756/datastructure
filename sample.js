@@ -1,16 +1,16 @@
-function squareRoot( n)
-{
+// function gg(str) {
+//   let sorted = str.split("").sort(); // correct sorting
 
-    /*We are using n itself as initial approximation
-   This can definitely be improved */
-    let x = n;
-    let y = 1;
-    let e = 0.000001; /* e decides the accuracy level*/
-    while (x - y > e) {
-        x = (x + y) / 2;
-        y = n / x;
-    }
-    return Math.floor(x)
-}
+//   for (let i = 1; i < sorted.length; i++) {
+//     if (sorted[i] === sorted[i - 1]) {
+//       return sorted[i];
+//     }
+//   }
+// }
 
-console.log(squareRoot(144));
+// console.log(gg("ered")); // e
+
+const arr = [1, 2, 3, 4, 5]
+
+let newArr = arr.map((a) => a >2)
+console.log(newArr);
