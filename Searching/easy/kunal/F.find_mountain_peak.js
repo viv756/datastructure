@@ -26,5 +26,4 @@ var peakIndexInMountainArray = function(arr) {
 };
 
 // If arr[mid] < arr[mid+1], we’re on the ascending slope — so the peak must be to the right.
-
 // If arr[mid] > arr[mid+1], we’re on the descending slope — so the peak must be at mid or to the left.”

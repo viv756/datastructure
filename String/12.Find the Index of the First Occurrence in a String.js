@@ -21,6 +21,9 @@ var strStr = function (haystack, needle) {
   return -1;
 };
 
+// Time Complexity: O(h × n) (worst case)
+// Space Complexity: O(1)
+
 /**
  * @param {string} haystack
  * @param {string} needle

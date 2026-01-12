@@ -1,15 +1,9 @@
 // How to Explain in Simple Words
-
 // We use a queue to visit nodes one by one (like reading the tree level by level).
-
 // For each node:
-
 // First, add its children to the queue so we don’t lose track of them.
-
 // Then, swap its left and right children.
-
 // Keep doing this until the queue is empty.
-
 // At the end, the whole tree is mirrored.
 
 /**
@@ -42,6 +36,7 @@ var invertTree = function(root) {
 
     return root
 };
+
 
 var invertTree = function(root) {
     if (root === null) {

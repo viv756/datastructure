@@ -58,6 +58,7 @@ var maxDepth = function (root) {
   return maxDepth;
 };
 
+
 // top down
 // traverse left and right subtree. increase depth while recursing
 var maxDepth = function (root) {

@@ -11,5 +11,4 @@ var removeElement = function (nums, val) {
   return i;
 };
 
- 
-console.log(removeElement([1,2,3,3,4,3,6,3,3],3));
+console.log(removeElement([1, 2, 3, 3, 4, 3, 6, 3, 3], 3));

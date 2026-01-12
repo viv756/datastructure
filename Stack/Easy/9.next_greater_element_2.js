@@ -4,6 +4,7 @@ var nextGreaterElements = function (nums) {
 
   for (let i = 0; i < n; i++) {
     for (let j = 1; j < n; j++) {
+      // It lets you move forward in a circular array without going out of bounds.
       const nextIndex = (i + j) % n;
       if (nums[nextIndex] > nums[i]) {
         res[i] = nums[nextIndex];

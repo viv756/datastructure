@@ -4,10 +4,11 @@ var applyOperations = function(nums) {
     let count = 0;
 
     for (let i = 0; i < n - 1; i++) {
+        // skip if it is zero because in newArray there is zero
         if (nums[i] !== 0) {
             if (nums[i] === nums[i + 1]) {
                 newNums[count] = nums[i] * 2;
-                nums[i + 1] = 0; 
+                nums[i + 1] = 0;    
                 i++; 
             } else {
                 newNums[count] = nums[i]; 
@@ -16,6 +17,7 @@ var applyOperations = function(nums) {
         }
     }
 
+    //  add last element
     if (nums[n - 1] !== 0) {
         newNums[count++] = nums[n - 1];
     }

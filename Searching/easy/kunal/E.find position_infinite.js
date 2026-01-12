@@ -12,10 +12,11 @@ function infiniteArray(arr, target) {
   let start = 0;
   let end = 1;
 
-  // if target is greater than end whic means that hthe target is outside the window
+  // if target is greater than end which means that the target is outside the window
   // so we will double the window size
   while (arr[end] < target) {
     let newStart = end + 1;
+    //  move forward + windowsize covered element * 2
     end = end + (end - start + 1) * 2;
     start = newStart;
   }

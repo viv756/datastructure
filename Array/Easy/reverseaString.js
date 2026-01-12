@@ -1,17 +1,16 @@
-var reverseString = function(s) {
+var reverseString = function (s) {
+  let left = 0;
+  let right = s.length - 1;
 
-    let left = 0
-    let right = s.length-1
+  while (left < right) {
+    let temp = s[left];
+    s[left] = s[right];
+    s[right] = temp;
 
-    while(left<right){
-        let temp = s[left]
-        s[left] = s[right]
-        s[right]= temp
+    left++;
+    right--;
+  }
 
-        left++
-        right--
-    }
-
-    return s
-
+  return s;
 };
+

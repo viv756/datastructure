@@ -8,7 +8,6 @@ var dailyTemperatures = function (temperatures) {
     while (j < temperatures.length && temperatures[i] >= temperatures[j]) {
       j += 1;
     }
-    console.log(j);
 
     if (j < temperatures.length) {
       result[i] = j - i;

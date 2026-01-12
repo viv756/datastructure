@@ -69,10 +69,10 @@ class BinaryTree {
   // In-order traversal (Left → Root → Right)
   inorder(node = this.root) {
     if (node !== null) {
-      this.inorder(node.left);
-      console.log(node.data);
-      this.inorder(node.right);
-    }
+      this.inorder(node.left); //left
+      console.log(node.data); //root
+      this.inorder(node.right); /// right
+    } 
   }
 
   // Pre-order traversal (Root → Left → Right)

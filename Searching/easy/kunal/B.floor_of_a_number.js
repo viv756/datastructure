@@ -16,3 +16,5 @@ function floorOfANumber(arr,target) {
 
   return right
 }
+
+// Given a sorted array and a value x, find the element of the floor of x. The floor of x is the largest element in the array smaller than or equal to x.

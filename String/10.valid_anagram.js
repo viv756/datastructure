@@ -24,3 +24,6 @@ var isAnagram = function (s, t) {
 
   return true;
 };
+
+// time = o(n)
+// space = o(k)

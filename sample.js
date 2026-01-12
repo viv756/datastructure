@@ -1,30 +1,55 @@
-const obj = {
-  count: 5,
-  show() {
-    console.log(this.count);
-  },
-};
-
-function debounce(fn, delay) {
-  let timer;
-
-  return function (...args) {
-
-    const context = this; // capture the caller's 'this'
-
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      console.log(args);
-
-      fn.apply(context, args); // use context, not obj
-    }, delay);
-  };
+class Naode {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
 }
 
-const debounceLog = debounce(console.log, 300);
+class BinaryTree {
+  constructor() {
+    this.root = null;
+  }
 
-obj.show = debounce(obj.show, 300);
+  insert(data) {
+    const newNode = new Node(data);
 
-// Now this works correctly:
-obj.show();   // prints 5 after 300ms
+    if (this.root === null) {
+      this.root = newNode;
+      return;
+    }
 
+    const queue = [this.root];
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+
+      if (current.left === null) {
+        current.left = newNode;
+        return;
+      } else {
+        queue.push(current.left);
+      }
+
+      if (current.right === null) {
+        current.right = newNode;
+        return;
+      } else {
+        queue.push(current.right);
+      }
+    }
+  }
+
+  search(data) {
+    if (this.root === null) return;
+
+    function rec(node) {
+      if (!node) return null;
+      if (node.data === data) return node;
+      rec(node.left);
+      rec(node.right);
+    }
+
+    rec(this.root);
+  }
+}

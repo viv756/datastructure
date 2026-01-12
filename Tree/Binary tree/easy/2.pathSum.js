@@ -45,20 +45,22 @@ var hasPathSum = function (root, targetSum) {
   if (!root) return false;
 
   var traverse = function (curr, currSum) {
-    let newSum = currSum + curr.val;
+    currSum += curr.val;
+
+    // leaf node
     if (!curr.left && !curr.right) {
-      if (newSum === targetSum) {
-        ans = ans || true;
-      }
+      return currSum === targetSum;
     }
-    
-    curr.left && traverse(curr.left, newSum);
-    curr.right && traverse(curr.right, newSum);
+
+    if (curr.left && traverse(curr.left, currSum)) return true;
+    if (curr.right && traverse(curr.right, currSum)) return true;
+
+    return false;
   };
 
-  traverse(root, 0);
-  return ans;
+  return traverse(root, 0);
 };
+
 
 var hasPathSum = function (root, targetSum) {
   if (!root) return false;

@@ -16,3 +16,5 @@ function ceilingOfaNumber(arr, target) {
   // after end of the loop  left will be at the index were the number needs to be inserted
   return left;
 }
+
+// Given a sorted array and a value x, find index of the ceiling of x. The ceiling of x is the smallest element in an array greater than or equal to x.

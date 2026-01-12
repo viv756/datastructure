@@ -1,25 +1,27 @@
-var nextGreaterElement = function (nums1, nums2) {
-  const result = [];
+// var nextGreaterElement = function (nums1, nums2) {
+//   const result = [];
 
-  for (let num1 of nums1) {
-    for (let i = 0; i < nums2.length; i++) {
-      if (nums2[i] === num1) {
-        for (j = i + 1; j < nums2.length; j++) {
-          if (nums2[j] > num1) {
-            result.push(nums2[j]);
-            break;
-          } else {
-            result.push(-1);
-            break;
-          }
-        }
-        break;
-      }
-    }
-  }
+//   for (let num1 of nums1) {
+//     let found = false;
 
-  return result;
-};
+//     for (let i = 0; i < nums2.length; i++) {
+//       if (nums2[i] === num1) {
+//         for (let j = i + 1; j < nums2.length; j++) {
+//           if (nums2[j] > num1) {
+//             result.push(nums2[j]);
+//             found = true;
+//             break;
+//           }
+//         }
+//         break;
+//       }
+//     }
+
+//     if (!found) result.push(-1);
+//   }
+
+//   return result;
+// };
 
 var nextGreaterElement = function (nums1, nums2) {
   const stack = [];
@@ -28,8 +30,12 @@ var nextGreaterElement = function (nums1, nums2) {
   for (let n of nums2) {
     while (stack.length && n > stack[stack.length - 1]) {
       map[stack.pop()] = n;
+      console.log(map,"map");
+      
     }
     stack.push(n);
+    console.log(stack,"stack");
+    
   }
 
   for (let n of stack) {

@@ -78,7 +78,6 @@ class LinkedList {
   }
 
   removeFrom(index) {
-    
     if (index < 0 || index >= this.size) {
       return console.log("no");
     }
@@ -91,7 +90,7 @@ class LinkedList {
       for (let i = 0; i < index-1 ; i++) {
         prev = prev.next;
       }
-      
+
       removeNode = prev.next;
       prev.next = removeNode.next;
     }
